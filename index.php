@@ -8,6 +8,7 @@
 
         <title>┌精品電子商務網站」</title>
         <link href="css.css" rel="stylesheet" type="text/css">
+        <script src="jquery-3.4.1.js"></script>
         <script src="js.js"></script>
 </head>
 

@@ -8,6 +8,7 @@
 
 	<title>┌精品電子商務網站」</title>
 	<link href="css.css" rel="stylesheet" type="text/css">
+	<script src="jquery-3.4.1.js"></script>
 	<script src="js.js"></script>
 </head>
 
@@ -15,7 +16,7 @@
 	<iframe name="back" style="display:none;"></iframe>
 	<div id="main">
 		<div id="top">
-			<a href="?">
+			<a href="index.php">
 				<img src="0416.jpg">
 			</a>
 			<img src="0417.jpg">
