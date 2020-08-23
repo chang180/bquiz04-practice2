@@ -31,3 +31,30 @@ foreach($bigs as $b){
 ?>
 
 <h1 class="ct">商品管理</h1>
+<div class="ct"><a href="?do=add_goods"><button>新增商品</a></button></div>
+<table>
+    <tr>
+        <td>編號</td>
+        <td>商品名稱</td>
+        <td>庫存量</td>
+        <td>狀態</td>
+        <td>操作</td>
+    </tr>
+    <?php
+    $rows=$Goods->all();
+    foreach($rows as $row){
+    ?>
+    <tr>
+        <td><?=$row['no'];?></td>
+        <td><?=$row['name'];?></td>
+        <td><?=$row['stock'];?></td>
+        <td><?=($row['sh']==1)?"販售中":"已下架";?></td>
+        <td>
+            <a href="?do=edit_goods&id=<?=$row['id'];?>"><button>修改</button></a>
+            <a href="api/del_goods.php?id=<?=$row['id'];?>"><button>刪除</button></a>
+            <a href="api/up_goods.php?id=<?=$row['id'];?>"><button>上架</button></a>
+            <a href="api/dn_goods.php?id=<?=$row['id'];?>"><button>下架</button></a>
+    </td>
+    </tr>
+    <?php } ?>
+</table>
