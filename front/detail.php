@@ -10,9 +10,11 @@
         <div>庫存量：<?= $row['stock']; ?></div>
     </div>
 </div>
-<form action="?do=buycart" method="get">
-    <input type="hidden" name="id" value="<?=$row['id'];?>">
-    <div class="ct">購買數量<input type="number" name="qt"><button><img src="img/0402.jpg"></button></div>
-</form>
-
+    <div class="ct">購買數量<input type="number" name="qt" id="qt"><button id="buy"><img src="img/0402.jpg"></button></div>
 <div class="ct"><button type="button" onclick="history.go(-1)">返回</button></div>
+<script>
+    $("#buy").on("click",function(){
+        let qt=$("#qt").val(),id=<?=$_GET['id'];?>;
+        location.href=`?do=buycart&id=${id}&qt=${qt}`;
+    })
+</script>

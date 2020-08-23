@@ -1,5 +1,5 @@
-<?php $row=$Ord->find(['no'=>$_GET['no']]);?>
-<h1 class="ct">訂單編號<?=$row['no'];?>的詳細資料</h1>
+<h1 class="ct">填寫資料</h1>
+<form action="api/order.php" method="post" onsubmit="alert('訂購成功\n感謝您的選購')">
 <table>
     <tr>
         <td>登入帳號</td>
@@ -7,19 +7,19 @@
     </tr>
     <tr>
         <td>姓名</td>
-        <td><?=$row['name'];?></td>
+        <td><input type="text" name="name"></td>
     </tr>
     <tr>
         <td>電子信箱</td>
-        <td><?=$row['name'];?></td>
+        <td><input type="text" name="email"></td>
     </tr>
     <tr>
         <td>聯絡地址</td>
-        <td><?=$row['addr'];?></td>
+        <td><input type="text" name="addr"></td>
     </tr>
     <tr>
         <td>聯絡電話</td>
-        <td><?=$row['tel'];?></td>
+        <td><input type="text" name="tel"></td>
     </tr>
 </table>
 <hr>
@@ -33,8 +33,7 @@
     </tr>
     <?php
     $sum=0;
-    $goods=unserialize($row['goods']);
-    foreach($goods as $id=>$qt){
+    foreach($_SESSION['cart'] as $id=>$qt){
     $row=$Goods->find($id);
 ?>
     <tr>
@@ -50,4 +49,5 @@ $sum+=$qt*$row['price'];
 </table>
 <div class="ct">總價：<?=$sum;?></div>
 <input type="hidden" name="total" value="<?=$sum;?>">
-<div class="ct"><a href="?do=order"><button type="button">返回</button></a></div>
+<div class="ct"><button>確定送出</button><a href="?do=buycart"><button type="button">返回修改訂單</button></a></div>
+</form>
