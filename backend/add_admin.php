@@ -7,5 +7,5 @@
     <input type="checkbox" name="pr[]" value="3">會員管理<br>
     <input type="checkbox" name="pr[]" value="4">頁尾版權區管理<br>
     <input type="checkbox" name="pr[]" value="5">最新消息管理<br>
-    <div class="ct"><button>新增</button><button>重置</button></div>
+    <div class="ct"><button>新增</button type="reset"><button>重置</button></div>
 </form>

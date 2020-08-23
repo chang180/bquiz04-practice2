@@ -31,6 +31,29 @@
                 </div>
                 <div id="left" class="ct">
                         <div style="min-height:400px;">
+                                <div class="ct">
+                                        <div class="ww"> <a href="?type=0">全部商品(<?= $Goods->count(['sh' => 1]); ?>)</a></div>
+                                        <?php
+                                        $bigs = $Type->all(['parent' => 0]);
+                                        foreach ($bigs as $b) {
+                                        ?>
+                                                <div class="ww">
+                                                        <a href="?type=<?= $b['id']; ?>"><?= $b['name']; ?>(<?= $Goods->count(['sh' => 1, 'big' => $b['id']]); ?>)</a>
+                                                        <?php
+                                                        $mids = $Type->all(['parent' => $b['id']]);
+                                                        foreach ($mids as $m) {
+                                                        ?>
+                                                                <div class="s">
+                                                                        <a style="background:lightgreen;" href="?type=<?= $m['id']; ?>"><?= $m['name']; ?>(<?= $Goods->count(['sh' => 1, 'mid' => $m['id']]); ?>)</a>
+                                                                </div>
+                                                        <?php
+                                                        }
+                                                        ?>
+
+                                                </div>
+                                        <?php } ?>
+                                </div>
+
                         </div>
                         <span>
                                 <div>進站總人數</div>
@@ -46,7 +69,7 @@
                         ?>
                 </div>
                 <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
-                        <?=$bottom['bottom'];?> </div>
+                        <?= $bottom['bottom']; ?> </div>
         </div>
 
 </body>

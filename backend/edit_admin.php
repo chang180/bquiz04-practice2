@@ -13,5 +13,5 @@ $pr=unserialize($row['pr']);
     <input type="checkbox" name="pr[]" value="4" <?=in_array(4,$pr)?"checked":"";?>>頁尾版權區管理<br>
     <input type="checkbox" name="pr[]" value="5" <?=in_array(5,$pr)?"checked":"";?>>最新消息管理<br>
     <input type="hidden" name="id" value="<?=$_GET['id'];?>">
-    <div class="ct"><button>修改</button><button>重置</button></div>
+    <div class="ct"><button>修改</button><button type="reset">重置</button></div>
 </form>
